@@ -1,0 +1,38 @@
+<div class="mt-4 listing">
+	<div class="row">
+		<div class="col-12">
+			<button class="btn btn-primary ml-1 float-right" [routerLink]="['/location']">+ Location</button>
+			<button class="btn btn-primary mt-r float-right" [routerLink]="['/dragon/0']">+ Dragon</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 mt-2">
+			<table class="table table-striped"  *ngIf="dragonsList.length > 0 && dragonsList[0].id; else noData">
+				<thead>
+					<tr>
+						<th>Dragon</th>
+						<th>Location</th>
+						<th>Color</th>
+						<th>Food</th>
+						<th>Action</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr *ngFor="let dragon of dragonsList">
+					<td>{{dragon.name}}</td>
+					<td>{{dragon.location}}</td>
+					<td>{{dragon.color}}</td>
+					<td>{{dragon.fav_food}}</td>
+					<td>
+						<a
+							[routerLink]="['/dragon', dragon.id]">Edit</a>
+					</td>
+					<td><button class="btn btn-danger" (click)="deleteDragon(dragon.id)">Delete</button></td>
+				</tr>
+				</tbody>
+			</table>
+			<ng-template #noData>No Data!</ng-template>
+		</div>
+	</div> 
+</div>

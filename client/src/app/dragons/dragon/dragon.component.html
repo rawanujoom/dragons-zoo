@@ -1,0 +1,42 @@
+<div class="dragon">
+	<div class="row">
+		<div class="col-6">
+			<label>Name:
+				<input required type="text" class="form-control" name="name" [(ngModel)]="dragon.name"/>
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			<label>Color:
+				<input required type="text" class="form-control" name="color" [(ngModel)]="dragon.color"/>
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			<label>Food:
+				<input required type="text" class="form-control" name="fav_food" [(ngModel)]="dragon.fav_food"/>
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-8">
+			<label>Location:
+				<select class="form-control" required name="location_id" [(ngModel)]="dragon.location_id">
+					<option value="">-Select Location-</option>
+					<option *ngFor="let location of locations" [value]="location.id">
+						{{location.location}}
+					</option>
+				</select>
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<button class="btn btn-primary mr-1 float-right" (click)="save()">Save</button>
+			<button class="btn btn-default mr-1 float-right" [routerLink]="['/home']">Cancel</button>
+		</div>
+
+	</div>
+</div>
